@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RepairMate</title>
+  <link rel="stylesheet" href="../CSS/style.css"/>
+  <style>
+   nav {
+      background-color: #333;
+      padding: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    li {
+      float: left;
+      margin-right: 20px;
+    }
+
+    li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    li a:hover {
+      color: #ff6600;
+    }
+
+    /* Landing Page Styles */
+    .landing-page {
+      text-align: center;
+      padding: 100px;
+      background-color: #f2f2f2;
+    }
+
+    .landing-page h1 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .landing-page p {
+      font-size: 18px;
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #ff6600;
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    .cta-buttons a:hover {
+      background-color: #ff8533;
+    }
+
+    /* Other Content Styles */
+    .other-content {
+      padding: 50px;
+      background-color: #fff;
+    }
+
+    .other-content h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .other-content p {
+      font-size: 16px;
+    }</style>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav>
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li class="login"><a href="login.jsp">Login</a></li>
+      <li class="signup"><a href="registration.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Landing Page Content -->
+  <div class="landing-page">
+    <h1>Welcome to Our Website!</h1>
+    <p>Experience the best services and products in the industry.</p>
+    <div class="cta-buttons">
+      <a href="login.jsp">Login</a>
+      <a href="registration.html">Sign Up</a>
+    </div>
+  </div>
+
+  <!-- Other content of the landing page -->
+  <div class="other-content">
+    <h2>About Us</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
+</body>
+</html>

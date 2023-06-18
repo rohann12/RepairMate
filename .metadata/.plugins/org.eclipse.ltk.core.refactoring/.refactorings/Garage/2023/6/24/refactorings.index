@@ -1,0 +1,41 @@
+1686643673811	Move 'login.jsp' to 'JSP'
+1686643676894	Move 'new jsp.jsp' to 'JSP'
+1686643690650	Move 'style.css' to 'CSS'
+1686643719371	Move 'Index.html' to 'JSP'
+1686643721223	Move 'login.html' to 'JSP'
+1686643739577	Move 'CSS' to 'webapp'
+1686643742204	Move 'JSP' to 'webapp'
+1686891098512	Delete element
+1686891121421	Rename resource 'js'
+1686898178329	Delete element
+1686898184566	Delete element
+1686898225661	Delete element
+1686898241887	Delete element
+1686902980620	Copy compilation unit
+1686902990904	Copy file
+1686902994643	Delete element
+1686903052465	Rename resource 'RegisterServlet.java'
+1686903181679	Rename resource 'RegisterServlet.jsp'
+1686904339703	Copy file
+1686904345346	Delete element
+1686904483238	Delete element
+1686977207548	Rename resource 'registration.jsp'
+1686982207690	Rename resource 'registration.jsp'
+1686982214943	Rename resource 'registration.java'
+1686983231097	Delete element
+1686983250253	Delete element
+1686983568603	Delete element
+1686990168939	Move 'RegisterServlet.java' to 'META-INF'
+1686990175456	Move 'RegisterServlet.java' to 'TESTS'
+1686990179669	Move 'new jsp.jsp' to 'TESTS'
+1687000067668	Delete element
+1687009731845	Rename resource 'aa.css'
+1687009733631	Delete element
+1687009767285	Delete element
+1687010999614	Rename resource 'registration.html'
+1687011009419	Rename resource 'reg.html'
+1687011088811	Delete element
+1687011098648	Rename resource 'order.html'
+1687019378946	Rename resource 'a.jsp'
+1687020347284	Rename resource 'insertOrder.jsp'
+1687020355443	Rename resource 'orderInserr.jsp'

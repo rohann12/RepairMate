@@ -1,0 +1,116 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Result</title>
+  <link rel="stylesheet" href="../CSS/login.css">
+</head>
+<body>
+<h1>Login Form</h1>
+        <form method='POST' action='' id="loginForm" onsubmit="event.preventDefault();validation();">
+            
+                <label for='user-name'>Username</label>
+                <input type='text' placeholder='&#xf007; Enter Username' name="user-name" id="user-name"><br>
+                <span class="error-message" id="username-validation"></span>
+                <span class='backend-error-message'>
+                    <?=$error_msg?>
+                </span>
+                <label for='password'>Password</label>
+                <input type='password' placeholder='&#xf084; Enter Password' name='password' id="password"><br>
+                <span  class="error-message" id="password-validation"></span>
+                <span class='backend-error-message'>
+                    <?=$error_msg2?>
+                </span>
+                <button type='submit'>Login</button>
+                <hr>
+                <span style="text-align:center"><b>Don't have an account</b></span>
+                <a href="registration.php"><button type="button">Create an account</button></a>
+           
+        </form>
+        
+<%@ page import="java.sql.*" %>
+<%@ page import="com.database.dbconn" %>
+
+<%
+   String username = request.getParameter("user-name");
+   String password = request.getParameter("password");
+
+   try {
+      // Establish a database connection
+      Connection conn = dbconn.getConnection();
+      
+      // Prepare the SQL statement
+      String query = "SELECT * FROM user WHERE username = ? AND password = ?";
+      PreparedStatement statement = conn.prepareStatement(query);
+      statement.setString(1, username);
+      statement.setString(2, password);
+      
+      // Execute the query
+      ResultSet resultSet = statement.executeQuery();
+      
+      if (resultSet.next()) {
+         // Valid login credentials, redirect to a success page
+         response.sendRedirect("index.html");
+      } else {
+         // Invalid login credentials, display an error message
+         out.println("<p>Invalid username or password.</p>");
+      }
+      
+      // Close the database connection
+      conn.close();
+   } catch (Exception e) {
+      out.println(e);
+   }
+%>
+
+        
+  <%-- <!-- <div class="container"> -->
+  <h2>Login</h2>
+    <form action="login.jsp" method="post">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <input type="submit" value="Login">
+    </form>
+    
+   
+   
+ 
+    boolean isValid = false;
+   String username = null; 
+    String password = null;
+      username =  request.getParameter("username");
+      password = request.getParameter("password");
+
+      // Perform login validation here (e.g., check credentials against a database)
+
+      // Dummy validation for demonstration purposes
+     if(username != null && password!=null) {
+    	  out.println("hello");
+      }else{
+    	  username = "admin";
+    	  password = "admin";
+    	  if(username.equals("admin") && password.equals("admin")){
+    		  out.println("user and password");
+    	  }
+      } 
+   //   boolean isValid = username.equals("admin") && password.equals("admin123")      
+    	//	 if (isValid) {
+        //out.println("<h2>Login Successful</h2>");
+        //out.println("<p>Welcome, " + username + "!</p>");
+     } else {
+        out.println("<h2>Login Failed</h2>");
+        out.println("<p>Invalid username or password.</p>");
+      }
+    
+  </div>
+</body> --%>
+</body>
+
+</html>

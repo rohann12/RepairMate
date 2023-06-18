@@ -1,0 +1,30 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.database.*" %>
+
+<%
+   
+Connection conn1 = dbconn.getConnection();
+
+try {
+    if (conn1 != null) {
+        // Use the connection object to execute queries and perform database operations
+        out.println("Database connected");
+        String sqlQuery = "SELECT * FROM user";
+        PreparedStatement statement = conn1.prepareStatement(sqlQuery);
+        ResultSet resultSet = statement.executeQuery();
+
+        while (resultSet.next()) {
+            // Retrieve and process the data from the result set
+            int id = resultSet.getInt("user_id");
+            String name = resultSet.getString("username");
+            // Do something with the retrieved data
+            out.println("ID: " + id + ", Name: " + name);
+        }
+    } else {
+        out.println("Error connecting to the database");
+    }
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+%>

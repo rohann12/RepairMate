@@ -50,6 +50,7 @@
             </tr>
         <% } %>
     </table>
+   <a href="addCustomer.jsp"> <button>Add a customer</button></a>
 </div>
     <%-- Close the database connection and result set --%>
     <%-- <% rs.close(); %>

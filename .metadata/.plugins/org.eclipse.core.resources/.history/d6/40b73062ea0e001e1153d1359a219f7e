@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="com.database.dbconn"%>
+<%@ page import="java.sql.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<jsp:include page="nav.jsp" />
+	<%
+	int id = Integer.parseInt(request.getParameter("id"));
+	Connection conn = dbconn.getConnection();
+	Statement stmt = conn.createStatement();
+
+	// Retrieve users with is_admin = 2
+	String query = "SELECT * FROM user WHERE order_id="+id;
+	ResultSet rs = stmt.executeQuery(query);%>
+	
+	<p><%=rs.getString("customer_name") %></p>
+	%>
+
+</body>
+</html>

@@ -20,12 +20,11 @@
     <label for="vehicle_no">Vehicle Number:</label>
     <input type="text" id="vehicle_no" name="vehicle_no" required>
     
-    <input type="hidden" id="start_time" name="start_time">
-    
+    <input type="hidden" id="start_time" name="start_time">    
   
     
-    <label for="estimated_completed">Estimated Completion Time:</label></br>
-    <input type="datetime-local" id="estimated_completed" name="estimated_completed" required></br>
+    <label for="estimated_completed">Estimated Completion Time:</label>
+    <input type="datetime-local" id="estimated_completed" name="estimated_completed" required>
     
     <label for="estimated_cost">Estimated Cost:</label>
     <input type="number" id="estimated_cost" name="estimated_cost" required>

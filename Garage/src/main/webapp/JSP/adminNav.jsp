@@ -13,7 +13,7 @@ body {
 	background-color: #333;
 	height: 100vh;
 	width: 220px;
-	position: fixed;
+	position: absolute;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -61,10 +61,12 @@ body {
 
 		<div class="admin-navbar-links">
 			<ul>
-				<li><a href="adminDash.jsp">Dashboard</a></li>
+				<li><a href="jobs.jsp">Dashboard</a></li>
 				<li><a href="users.jsp">Users</a></li>
 				<li><a href="customers.jsp">Customers</a></li>
 				<li><a href="admins.jsp">Admins</a></li>
+				<li><a href="invoices.jsp">Invoice</a></li>
+				<li><a href="report.jsp">Report</a></li>
 			</ul>
 		</div>
 	</div>

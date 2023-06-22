@@ -1,0 +1,41 @@
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.SQLException" %>
+
+<%
+    Connection conn = null;
+
+    try {
+        String url = "jdbc:mysql://localhost:3306/repairmate";
+        String username = "root";
+        String password = "";
+
+        Class.forName("com.mysql.jdbc.Driver");
+        conn = DriverManager.getConnection(url, username, password);
+        out.println("Database connected");
+    } catch (Exception e) {
+        out.println(e);
+    }
+%>
+
+<%
+    // Define other JSP code here
+
+    // Example usage of the connection
+    try {
+        // Use the 'conn' connection object to perform database operations
+        // ...
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        // Close the connection
+        if (conn != null) {
+            try {
+                conn.close();
+                out.println("Database connection closed");
+            } catch (SQLException e) {
+                out.println("Error while closing the database connection: " + e.getMessage());
+            }
+        }
+    }
+%>

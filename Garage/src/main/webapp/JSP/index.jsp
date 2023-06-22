@@ -18,7 +18,7 @@
     <p></p>
     <div class="cta-buttons">
       <a href="login.jsp">Login</a>
-      <a href="registration.html">Sign Up</a>
+      <a href="reg.jsp">Sign Up</a>
     </div>
   </div>
 

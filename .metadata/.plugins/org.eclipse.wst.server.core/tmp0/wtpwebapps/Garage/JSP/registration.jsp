@@ -26,6 +26,7 @@
 		String pass = request.getParameter("password");
 		String uname = request.getParameter("user-name");
 		String contact = request.getParameter("contact");
+
 		/* int contact=Integer.parseInt(request.getParameter("contact"));
 		/* int cont=Integer.parseInt(contact); */
 		/* 

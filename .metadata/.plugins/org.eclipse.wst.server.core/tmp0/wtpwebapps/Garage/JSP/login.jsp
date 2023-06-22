@@ -24,7 +24,7 @@
 		<button type='submit'>Login</button>
 		<hr>
 		<span style="text-align: center"><b>Don't have an account</b></span> <a
-			href="registration.jsp"><button type="button">Create an
+			href="reg.jsp"><button type="button">Create an
 				account</button></a>
 
 	</form>

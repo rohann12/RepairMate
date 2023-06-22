@@ -30,7 +30,7 @@
         Statement stmt = conn.createStatement();
 
         // Retrieve users with is_admin = 2
-        String query = "SELECT * FROM user WHERE is_admin = 2";
+        String query = "SELECT * FROM user WHERE is_admin = 1";
         ResultSet rs = stmt.executeQuery(query);
     %>
 <div class="content">
@@ -51,10 +51,6 @@
         <% } %>
     </table>
 </div>
-    <%-- Close the database connection and result set --%>
-    <%-- <% rs.close(); %>
-    <% stmt.close(); %> --%>
-    <!-- This closed the connection preventing the reload -->
-    <%-- <% conn.close(); %> --%>
+    
 </body>
 </html>

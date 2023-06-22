@@ -7,7 +7,7 @@
 
    // Invalidate the session if it exists
    if (session != null) {
-      session.invalidate();
+      s.invalidate();
    }
 
    // Redirect the user to the login page

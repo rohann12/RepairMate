@@ -29,6 +29,10 @@ nav {
   color: #fff;
   text-decoration: none;
   font-size: 16px;
+  font-size: 20px;
+    margin-right: 20px;
+
+
 }
 
 .navbar-links li a:hover {
@@ -57,6 +61,7 @@ margin-top:8px;
         if (s != null && s.getAttribute("username") != null) {
           // User is logged in, show logout link
           %>
+          <li class="jobs"><a href="jobs.jsp">Jobs</a></li>
           <li class="logout"><a href="logout.jsp">Logout</a></li>
           <%
         } else {

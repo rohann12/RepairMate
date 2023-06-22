@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Users List</title>
+<title>Jobs List</title>
 <style>
 table {
 	border-collapse: collapse;
@@ -31,7 +31,7 @@ th {
 	Statement stmt = conn.createStatement();
 
 	// Retrieve users with is_admin = 2
-	String query = "SELECT * FROM order_list";
+	String query = "SELECT * FROM order_list ORDER BY priority DESC";
 	ResultSet rs = stmt.executeQuery(query);
 	%>
 	<div style="display: grid; place-items: center">
@@ -43,6 +43,7 @@ th {
 					<th>Customer Name</th>
 					<th>Vehicle number</th>
 					<th>Repairs</th>
+					<th>Priority</th>
 				</tr>
 				<%
 				while (rs.next()) {
@@ -51,6 +52,8 @@ th {
 					<td><%=rs.getString("customer_name")%></td>
 					<td><%=rs.getString("vehicle_no")%></td>
 					<td><%=rs.getString("repairs")%></td>
+					<td><%=rs.getString("priority")%></td>
+					<td><a href="repair.jsp?id=<%=rs.getInt("order_id")%>"><button>Take job</button></a>
 				</tr>
 				<%
 				}

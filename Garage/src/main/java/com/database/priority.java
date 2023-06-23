@@ -16,15 +16,15 @@ public class priority {
 		}
 		if(timeEstimated<=(30*60))
 			pr+=1;
-		if(amount>=100)
+		else if(amount>=100)
 			pr+=1;
-		if(amount>=500)
+		else if(amount>=500)
 			pr+=1;
-		if(amount>=1000)
+		else if(amount>=1000)
 			pr+=1;
-		if(amount>=5000)
+		else if(amount>=5000)
 			pr+=1;
-		if(amount>=10000)
+		else if(amount>=10000)
 			pr+=1;
 		return pr;
 	}

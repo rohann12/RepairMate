@@ -1,0 +1,41 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="com.database.*" %>
+<%@ page import="java.sql.*" %>
+<%
+  try {
+    Connection conn = dbconn.getConnection();
+    Statement st = conn.createStatement();
+
+    String customerName = request.getParameter("customer");
+    String[] jobs = request.getParameterValues("jobs");
+
+//     // Check if customerName is null or empty
+//     if (customerName == null || customerName.trim().isEmpty()) {
+//       response.getWriter().println("<script>alert('Customer name is required'); window.history.back();</script>");
+//       return;
+//     }
+
+//     // Check if jobs array is null or empty
+//     if (jobs == null || jobs.length == 0 || jobs[0].trim().isEmpty()) {
+//       response.getWriter().println("<script>alert('At least one job is required'); window.history.back();</script>");
+//       return;
+//     }
+
+    // Concatenate job entries into a single string
+    String concatenatedJobs = String.join(". ", jobs);
+
+    // Insert the customer name and concatenated jobs into the database
+    String query = "INSERT INTO mul (customer_name, jobs) VALUES (?, ?)";
+    PreparedStatement pstmt = conn.prepareStatement(query);
+    pstmt.setString(1, customerName);
+    pstmt.setString(2, concatenatedJobs);
+    pstmt.executeUpdate();
+
+    response.getWriter().println("<script>Data inserted successfully</script>");
+
+    // Redirect to index.jsp
+    response.sendRedirect("index.jsp");
+  } catch (Exception e) {
+    out.println(e);
+  }
+%>

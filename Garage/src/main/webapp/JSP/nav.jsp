@@ -54,7 +54,7 @@ margin-top:8px;
     <ul>
       <li><a href="index.jsp">Home</a></li>
       <li><a href="order.jsp">Services</a></li>
-      <li><a href="contact.jsp">Contact</a></li>
+    
        <%-- Checking session to determine login/logout links --%>
       <%
         HttpSession s = request.getSession(false);
@@ -63,6 +63,7 @@ margin-top:8px;
           %>
           <li class="jobs"><a href="jobs.jsp">Jobs</a></li>
           <li class="logout"><a href="logout.jsp">Logout</a></li>
+          
           <%
         } else {
           // User is not logged in, show login link

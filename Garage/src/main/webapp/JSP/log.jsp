@@ -40,13 +40,15 @@
             // Start a session and store the user information
             HttpSession s = request.getSession();
             s.setAttribute("username", username);
-            s.setAttribute("isAdmin", true);
+           
 
             // Redirect to admin dashboard or a different page for non-admin users
             if (isAdmin == 1) {
+            	 s.setAttribute("isAdmin", true);
             	
                 response.sendRedirect("adminDash.jsp"); 
             } else {
+            	 s.setAttribute("isAdmin", false);
                 response.sendRedirect("index.jsp");
             }
         } else {

@@ -23,7 +23,21 @@ th {
 </style>
 </head>
 <body>
-	<jsp:include page="nav.jsp" />
+
+	<%
+	HttpSession s = request.getSession(false);
+	if (s != null && Boolean.TRUE.equals(s.getAttribute("isAdmin"))) {
+	%>
+	<jsp:include page="adminNav.jsp" />
+	<%
+	} else if (s != null && Boolean.TRUE.equals(s.getAttribute("isAdmin"))){
+	%>
+		<jsp:include page="nav.jsp" />
+	<%
+	}
+	%>
+	
+
 
 	<%-- Establish the database connection --%>
 	<%
@@ -35,7 +49,7 @@ th {
 	ResultSet rs = stmt.executeQuery(query);
 	%>
 	<div style="display: grid; place-items: center">
-		<div class="content" style="margin-top:20px;">
+		<div class="content" style="margin-top: 20px;">
 			<h2>Jobs:</h2>
 
 			<table>
@@ -53,7 +67,8 @@ th {
 					<td><%=rs.getString("vehicle_no")%></td>
 					<td><%=rs.getString("repairs")%></td>
 					<td><%=rs.getString("priority")%></td>
-					<td><a href="repair.jsp?id=<%=rs.getInt("order_id")%>"><button>Take job</button></a>
+					<td><a href="repair.jsp?id=<%=rs.getInt("order_id")%>"><button>Take
+								job</button></a>
 				</tr>
 				<%
 				}

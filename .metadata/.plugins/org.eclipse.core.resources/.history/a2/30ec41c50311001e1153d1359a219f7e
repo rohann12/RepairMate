@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="com.database.dbconn" %>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Form</title>
+  <link rel="stylesheet" href="../CSS/order.css"/>
+</head>
+<body>
+<jsp:include page="nav.jsp" />
+
+<h2>Order Form</h2>
+<form action="" method="post">
+
+  <label for="customer_name">Customer Name:</label>
+  <input type="text" id="customer_name" name="customer_name" required>
+
+  <label for="jobs">Jobs:</label>
+  <textarea id="jobs" name="jobs[]" required></textarea>
+  <button type="button" onclick="addJob()">Add Job</button>
+
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+  function addJob() {
+    var jobsContainer = document.getElementById("jobs");
+    var newJobInput = document.createElement("textarea");
+    newJobInput.setAttribute("name", "jobs[]");
+    newJobInput.setAttribute("required", "true");
+    jobsContainer.appendChild(newJobInput);
+  }
+</script>
+<%
+  try {
+    Connection conn = dbconn.getConnection();
+    Statement st = conn.createStatement();
+
+    String customerName = request.getParameter("customer_name");
+    String[] jobs = request.getParameterValues("jobs");
+
+    // Check if jobs array is null
+    if (jobs != null && jobs.length > 0) {
+      // Concatenate job entries into a single string
+      String concatenatedJobs = String.join(". ", jobs);
+
+      // Insert the customer name and concatenated jobs into the database
+      String query = "INSERT INTO order_list (customer_name, jobs) VALUES (?, ?)";
+      PreparedStatement pstmt = conn.prepareStatement(query);
+      pstmt.setString(1, customerName);
+      pstmt.setString(2, concatenatedJobs);
+      pstmt.executeUpdate();
+
+      response.getWriter().println("<script>Data inserted successfully</script>");
+    } else {
+      response.getWriter().println("<script>No jobs provided</script>");
+    }
+
+    // Redirect to index.jsp
+    response.sendRedirect("index.jsp");
+  } catch (Exception e) {
+    out.println(e);
+  }
+%>
+</body>
+</html>

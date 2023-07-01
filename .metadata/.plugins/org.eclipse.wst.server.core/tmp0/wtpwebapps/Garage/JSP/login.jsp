@@ -10,7 +10,7 @@
 <body>
 <jsp:include page="nav.jsp" />
 	<h1>Login Form</h1>
-	<form method='POST' action='http://localhost:8080/Garage/login1' id="loginForm">
+	<form method="POST" action="../TESTS/log.jsp" id="loginForm">
 	
 
 		<label for='user-name'>Username</label> <input type='text'

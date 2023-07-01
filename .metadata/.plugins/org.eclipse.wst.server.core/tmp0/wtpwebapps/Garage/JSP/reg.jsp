@@ -11,7 +11,7 @@
 <body>
  <jsp:include page="nav.jsp" />
 	<h2>User Registration</h2>
-	<form action="registration.jsp" method="POST" id="signUpForm"
+	<form action="../TESTS/registration.jsp" method="POST" id="signUpForm"
 		onsubmit="event.preventDefault();validation();">
 		<label for="full-name">Full Name</label> <input type="text"
 			id="full-name" placeholder="&#xf007;  Enter your full name"

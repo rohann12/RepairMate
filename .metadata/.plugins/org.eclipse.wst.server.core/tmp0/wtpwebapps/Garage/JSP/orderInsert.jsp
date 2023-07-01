@@ -16,6 +16,11 @@
         String estimatedCompleted = request.getParameter("estimated_completed");
         String estimatedCost = request.getParameter("estimated_cost");
         String repairs = request.getParameter("repairs");
+        String[] jobs = request.getParameterValues("jobs[]");
+			
+        
+        // Concatenate job entries into a single string
+        String concatenatedJobs = String.join(". ", jobs);
         
 //         To calculate priority
    		
@@ -26,7 +31,7 @@
         int priorit=order.calculate_priority();
 
         String query = "INSERT INTO order_list ( customer_id, customer_name, vehicle_no, start_time, estimated_completed, estimated_cost, repairs,priority) " +
-                "VALUES ( '" + customerID + "', '" + customerName + "', '" + vehicleNo + "', '" + startTime + "', '" + estimatedCompleted + "', '" + estimatedCost + "', '" + repairs + "','" + priorit + "')";
+                "VALUES ( '" + customerID + "', '" + customerName + "', '" + vehicleNo + "', '" + startTime + "', '" + estimatedCompleted + "', '" + estimatedCost + "', '" + concatenatedJobs + "','" + priorit + "')";
 
         st.executeUpdate(query);
 

@@ -13,7 +13,7 @@
     <h2>Add Client</h2>
     
 
-    <form action="http://localhost:8080/Garage/ADDcustomer" method="POST">
+    <form action="../TESTS/addCustomerList.jsp" method="POST">
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name" placeholder="Enter client name" required>

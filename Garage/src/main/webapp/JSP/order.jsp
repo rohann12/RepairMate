@@ -29,8 +29,11 @@
     <label for="estimated_cost">Estimated Cost:</label>
     <input type="number" id="estimated_cost" name="estimated_cost" required>
     
-    <label for="repairs">Repairs:</label>
-    <textarea id="repairs" name="repairs" required></textarea>
+   <label for="jobs">Jobs:</label>
+	<div id="jobsContainer">
+    <textarea name="jobs[]" required></textarea>
+  </div>
+  <button type="button" onclick="addJob()">Add Job</button>
     
     <button type="submit">Submit</button>
   </form>
@@ -42,6 +45,17 @@
       }
       // Call setStartTime() when the form is submitted
       document.querySelector("form").addEventListener("submit", setStartTime);
+      var jobCount = 1;
+
+      function addJob() {
+        var jobsContainer = document.getElementById("jobsContainer");
+        var newJobInput = document.createElement("textarea");
+        newJobInput.setAttribute("name", "jobs[]");
+        newJobInput.setAttribute("required", "true");
+        newJobInput.setAttribute("id", "job" + jobCount);
+        jobsContainer.appendChild(newJobInput);
+        jobCount++;
+      }
     </script>
 </body>
 </html>

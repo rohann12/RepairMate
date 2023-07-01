@@ -38,7 +38,7 @@
 		response.getWriter().println("<script>Data inserted successfully</script>");
 
 		// Redirect to index.html
-		response.sendRedirect("index.jsp");
+		response.sendRedirect("../JSP/index.jsp");
 	} catch (Exception e) {
 		out.println(e);
 

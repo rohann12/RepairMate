@@ -10,9 +10,20 @@
 <body>
   <!-- Navigation Bar -->
   
-   <jsp:include page="nav.jsp" />
-
+  <%
+	HttpSession s = request.getSession(false);
+	if (s != null && Boolean.TRUE.equals(s.getAttribute("isAdmin"))) {
+	%>
+	<jsp:include page="adminNav.jsp" />
+	<%
+	} else if (s != null && Boolean.FALSE.equals(s.getAttribute("isAdmin"))) {
+	%>
+	<jsp:include page="nav.jsp" />
+	<%
+	}
+	%>
   <!-- Landing Page Content -->
+  <div class="content">
   <div class="landing-page">
     <h1>Welcome to RepairMate!</h1>
     <p></p>
@@ -26,6 +37,7 @@
   <div class="other-content">
     <h2>About Us</h2>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </div>
   </div>
 </body>
 </html>

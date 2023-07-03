@@ -39,7 +39,7 @@ th {
 	while (rs.next()) {
 	%>
 
-
+	<div class="content">
 	<table>
 		<tr>
 			<th>Customer Name</th>
@@ -73,7 +73,7 @@ th {
 			</td>
 		</tr>
 	</table>
-
+</div>
 	<script type="text/javascript" src="../Javascript/stop.js"></script>
 
 

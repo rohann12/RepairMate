@@ -23,7 +23,7 @@ body {
 }
 
 .content {
-	max-width: 600px;
+	max-width: 740px;
 	margin: 20px;
 	background-color: #fff;
 	padding: 20px;
@@ -62,9 +62,43 @@ tr:hover {
 .scrollable-table {
 	overflow: auto;
 	max-height: 400px;
+	/* Hide the scrollbar */
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
 }
 
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.scrollable-table::-webkit-scrollbar {
+	width: 6px;
+}
+
+.scrollable-table::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+.scrollable-table::-webkit-scrollbar-thumb {
+	background-color: transparent;
+}
+
+/* Hide scrollbar for Firefox */
+.scrollable-table {
+	scrollbar-width: thin;
+	scrollbar-color: transparent transparent;
+}
+
+.scrollable-table::-moz-scrollbar {
+	width: 6px;
+}
+
+.scrollable-table::-moz-scrollbar-track {
+	background-color: transparent;
+}
+
+.scrollable-table::-moz-scrollbar-thumb {
+	background-color: transparent;
+}
 </style>
+
 </head>
 <body>
 
@@ -74,7 +108,7 @@ tr:hover {
 	%>
 	<jsp:include page="adminNav.jsp" />
 	<%
-	} else if (s != null && Boolean.TRUE.equals(s.getAttribute("isAdmin"))) {
+	} else if (s != null && Boolean.FALSE.equals(s.getAttribute("isAdmin"))) {
 	%>
 	<jsp:include page="nav.jsp" />
 	<%
@@ -99,7 +133,7 @@ tr:hover {
 			<div class="scrollable-table">
 				<table>
 					<tr>
-						<th>Serial Number</th>
+						<th>S.N.</th>
 						<th>Customer Name</th>
 						<th>Vehicle number</th>
 						<th>Repairs</th>

@@ -2,11 +2,22 @@
 <html>
 <head>
   <title>Order Form</title>
-  <link rel="stylesheet" href="../CSS/order.css"/>
+  <link rel="stylesheet" href="../CSS/orders.css"/>
 </head>
 <body>
-<jsp:include page="nav.jsp" />
-
+<%
+	HttpSession s = request.getSession(false);
+	if (s != null && Boolean.TRUE.equals(s.getAttribute("isAdmin"))) {
+	%>
+	<jsp:include page="adminNav.jsp" />
+	<%
+	} else if (s != null && Boolean.FALSE.equals(s.getAttribute("isAdmin"))) {
+	%>
+	<jsp:include page="nav.jsp" />
+	<%
+	}
+	%>
+<div class="content">
   <h2>Order Form</h2>
   <form action="orderInsert.jsp" method="post">
     
@@ -37,6 +48,7 @@
     
     <button type="submit">Submit</button>
   </form>
+  </div>
   <!--Insert current time  -->
      <script>
       function setStartTime() {
@@ -56,6 +68,7 @@
         jobsContainer.appendChild(newJobInput);
         jobCount++;
       }
+     
     </script>
 </body>
 </html>

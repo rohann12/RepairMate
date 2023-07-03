@@ -61,7 +61,7 @@ body {
 
 		<div class="admin-navbar-links">
 			<ul>
-				<li><a href="jobs.jsp">Dashboard</a></li>
+				<li><a href="adminDash.jsp">Dashboard</a></li>
 				<li><a href="users.jsp">Users</a></li>
 				<li><a href="customers.jsp">Customers</a></li>
 				<li><a href="admins.jsp">Admins</a></li>

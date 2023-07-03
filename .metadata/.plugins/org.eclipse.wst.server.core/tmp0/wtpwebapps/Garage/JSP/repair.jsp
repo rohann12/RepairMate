@@ -63,7 +63,7 @@ th {
 		</tr>
 		<tr>
 			<th>Time taken</th>
-			<td id="time_taken">0 seconds</td>
+			<td id="time_taken">00:00:00</td>
 		</tr>
 		<tr>
 			<td colspan="2">
@@ -74,7 +74,7 @@ th {
 		</tr>
 	</table>
 
-	<script type="text/javascript" src="../Javascript/stopwatch.js"></script>
+	<script type="text/javascript" src="../Javascript/stop.js"></script>
 
 
 	<%

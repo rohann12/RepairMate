@@ -21,7 +21,9 @@
 	<jsp:include page="nav.jsp" />
 	<%
 	}
-	%>
+	 else{ %>
+	<jsp:include page="nav.jsp"/>
+		<% }%>
   <!-- Landing Page Content -->
   <div class="content">
   <div class="landing-page">

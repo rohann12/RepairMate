@@ -27,17 +27,18 @@
 		int timeEstimated=1000;
 		int amount=Integer.parseInt(estimatedCost);
 		
-		// WHEN I tried to insert priority directly into the database
-//         priority order= new priority(timeEstimated,amount);
+// 		WHEN I tried to insert priority directly into the database
+
+        priority order= new priority(estimatedCompleted,amount,concatenatedJobs);
         
-//         int priorit=order.calculate_priority();
+        int priorit=order.calculate_priority();
 
-//         String query = "INSERT INTO order_list ( customer_id, customer_name, vehicle_no, start_time, estimated_completed, estimated_cost, repairs,priority) " +
-//                 "VALUES ( '" + customerID + "', '" + customerName + "', '" + vehicleNo + "', '" + startTime + "', '" + estimatedCompleted + "', '" + estimatedCost + "', '" + concatenatedJobs + "','" + priorit + "')";
+        String query = "INSERT INTO order_list ( customer_id, customer_name, vehicle_no, start_time, estimated_completed, estimated_cost, repairs,priority) " +
+                "VALUES ( '" + customerID + "', '" + customerName + "', '" + vehicleNo + "', '" + startTime + "', '" + estimatedCompleted + "', '" + estimatedCost + "', '" + concatenatedJobs + "','" + priorit + "')";
 
-       String query = "INSERT INTO order_list ( customer_id, customer_name, vehicle_no, start_time,estimated_completed, estimated_cost, repairs,) " +
-                "VALUES ( '" + customerID + "', '" + customerName + "', '" + vehicleNo + "', '" + startTime 
-                		+ "', '" + estimatedCompleted + "', '" + estimatedCost + "', '" + concatenatedJobs + "')";
+//        String query = "INSERT INTO order_list ( customer_id, customer_name, vehicle_no, start_time,estimated_completed, estimated_cost, repairs,) " +
+//                 "VALUES ( '" + customerID + "', '" + customerName + "', '" + vehicleNo + "', '" + startTime 
+//                 		+ "', '" + estimatedCompleted + "', '" + estimatedCost + "', '" + concatenatedJobs + "')";
 
         st.executeUpdate(query);
 

@@ -6,6 +6,29 @@
 <head>
     <title>Users List</title>
     <style>
+        /* Add custom scrollbar styles */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        .table-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        .table-container {
+            max-height: 300px; /* Set the maximum height to determine the number of rows to be displayed at once */
+            overflow-y: scroll;
+        }
+
         table {
             border-collapse: collapse;
             margin-bottom: 20px;
@@ -22,7 +45,7 @@
     </style>
 </head>
 <body>
-<jsp:include page="adminNav.jsp" />
+    <jsp:include page="adminNav.jsp" />
 
     <%-- Establish the database connection --%>
     <%
@@ -33,29 +56,31 @@
         String query = "SELECT * FROM user WHERE is_admin = 0";
         ResultSet rs = stmt.executeQuery(query);
     %>
-<div class="content">
-    <h2>Customers:</h2>
 
-    <table>
-        <tr>
-            <th>User ID</th>
-            <th>Username</th>
-            <th>Email</th>
-        </tr>
-        <% while (rs.next()) { %>
-            <tr>
-                <td><%= rs.getInt("user_id") %></td>
-                <td><%= rs.getString("user_name") %></td>
-                <td><%= rs.getString("email") %></td>
-            </tr>
-        <% } %>
-    </table>
-   <a href="addCustomer.jsp"> <button>Add a customer</button></a>
-</div>
-    <%-- Close the database connection and result set --%>
-    <%-- <% rs.close(); %>
-    <% stmt.close(); %> --%>
-    <!-- This closed the connection preventing the reload -->
-    <%-- <% conn.close(); %> --%>
+    <div class="content">
+        <h2>Customers:</h2>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>User ID</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                </tr>
+                <% while (rs.next()) { %>
+                    <tr>
+                        <td><%= rs.getInt("user_id") %></td>
+                        <td><%= rs.getString("full_name") %></td>
+                        <td><%= rs.getString("email") %></td>
+                        <td><%= rs.getString("contact") %></td>
+                    </tr>
+                <% } %>
+            </table>
+        </div>
+        <a href="addCustomer.jsp"><button>Add a customer</button></a>
+    </div>
+
+
 </body>
 </html>

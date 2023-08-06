@@ -73,13 +73,16 @@ tr:hover {
 }
 
 .scrollable-table::-webkit-scrollbar-track {
-	background-color: transparent;
+	 background: #f1f1f1;
 }
 
 .scrollable-table::-webkit-scrollbar-thumb {
-	background-color: transparent;
+	  background: #888;
+            border-radius: 4px;
 }
-
+.scrollable-table::-webkit-scrollbar-thumb:hover {
+	 
+ background: #555;}
 /* Hide scrollbar for Firefox */
 .scrollable-table {
 	scrollbar-width: thin;
@@ -143,28 +146,30 @@ tr:hover {
 					<%
 					int serialNumber = 1; // Counter variable for serial numbering
 					while (rs.next()) {
-						String repairs = rs.getString("repairs");
-						String[] repairsArray = repairs.split(". "); // Split the concatenated repairs into an array
-					%>
-					<tr>
-						<td><%= serialNumber %></td> <!-- Display serial number -->
-						<td><%=rs.getString("customer_name")%></td>
-						<td><%=rs.getString("vehicle_no")%></td>
-						<td>
-							<%
-							for (String repair : repairsArray) {
-							%> <%=repair%><br> <!-- Display each repair on a new line -->
-							<%
-							}
-							%>
-						</td>
-						<td><%=rs.getString("priority")%></td>
-						<td><a href="repair.jsp?id=<%=rs.getInt("order_id")%>"><button>Take
-									job</button></a>
-						</td>
-					</tr>
-					<%
-					serialNumber++; // Increment the serial number
+						if ("available".equals(rs.getString("status"))) {
+							String repairs = rs.getString("repairs");
+							String[] repairsArray = repairs.split(". "); // Split the concatenated repairs into an array
+						%>
+						<tr>
+							<td><%= serialNumber %></td> <!-- Display serial number -->
+							<td><%=rs.getString("customer_name")%></td>
+							<td><%=rs.getString("vehicle_no")%></td>
+							<td>
+								<%
+								for (String repair : repairsArray) {
+								%> <%=repair%><br> <!-- Display each repair on a new line -->
+								<%
+								}
+								%>
+							</td>
+							<td><%=rs.getString("priority")%></td>
+							<td><a href="repair.jsp?id=<%=rs.getInt("order_id")%>"><button>Take
+										job</button></a>
+							</td>
+						</tr>
+						<%
+						serialNumber++; // Increment the serial number
+						}
 					}
 					%>
 				</table>

@@ -11,7 +11,7 @@ body {
 
 .admin-navbar {
 	background-color: #333;
-	height: 100vh;
+	height: 85%;
 	width: 220px;
 	position: absolute;
 	display: flex;

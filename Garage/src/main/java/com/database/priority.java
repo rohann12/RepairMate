@@ -5,7 +5,7 @@ public class priority {
 //	public static void main(String[] args) {
 //		// TODO Auto-generated method stub}
 
-	public priority(int timeEstimated,int amount) {
+	public priority(String estimatedCompleted,int amount,String concatenatedJobs) {
 		this.timeEstimated=timeEstimated;
 		this.amount=amount;
 	}

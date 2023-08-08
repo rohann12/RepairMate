@@ -11,7 +11,7 @@ body {
 
 .admin-navbar {
 	background-color: #333;
-	height: 85%;
+	height: 110%;
 	width: 220px;
 	position: absolute;
 	display: flex;
@@ -65,7 +65,7 @@ body {
 				<li><a href="users.jsp">Users</a></li>
 				<li><a href="customers.jsp">Customers</a></li>
 				<li><a href="admins.jsp">Admins</a></li>
-				<li><a href="invoices.jsp">Invoice</a></li>
+				<li><a href="invoice.jsp">Invoice</a></li>
 				<li><a href="report.jsp">Report</a></li>
 			</ul>
 		</div>

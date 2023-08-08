@@ -16,5 +16,8 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Program Files/apache-tomcat-8.5.87/lib/servlet-api.jar"/>
 	<classpathentry kind="lib" path="C:/Program Files/Java/jre-1.8/lib/ext/mysql-connector.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.mail-1.6.2.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/javax.mail-api-1.6.2.jar"/>
+	<classpathentry kind="lib" path="src/main/webapp/WEB-INF/lib/activation-1.1.1.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

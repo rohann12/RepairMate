@@ -1,107 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
-<%@ page import="com.database.dbconn"%>
+<%@ page import="com.database.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <title>Jobs List</title>
-<style>
-body {
-	font-family: "Helvetica Neue", Arial, sans-serif;
-	margin: 0;
-	padding: 0;
-	color: #333;
-	background-color: #f5f5f5;
-}
-
-.container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
-}
-
-.content {
-	max-width: 740px;
-	margin: 20px;
-	background-color: #fff;
-	padding: 20px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-	margin-top: 0;
-	font-size: 24px;
-}
-
-table {
-	width: 100%;
-	border-collapse: collapse;
-	margin-bottom: 20px;
-}
-
-th, td {
-	padding: 10px;
-	text-align: left;
-	border-bottom: 1px solid #ddd;
-}
-
-th {
-	background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-	background-color: #f9f9f9;
-}
-
-tr:hover {
-	background-color: #f5f5f5;
-}
-
-.scrollable-table {
-	overflow: auto;
-	max-height: 400px;
-	/* Hide the scrollbar */
-	scrollbar-width: thin;
-	scrollbar-color: transparent transparent;
-}
-
-/* Hide scrollbar for Chrome, Safari, and Opera */
-.scrollable-table::-webkit-scrollbar {
-	width: 6px;
-}
-
-.scrollable-table::-webkit-scrollbar-track {
-	 background: #f1f1f1;
-}
-
-.scrollable-table::-webkit-scrollbar-thumb {
-	  background: #888;
-            border-radius: 4px;
-}
-.scrollable-table::-webkit-scrollbar-thumb:hover {
-	 
- background: #555;}
-/* Hide scrollbar for Firefox */
-.scrollable-table {
-	scrollbar-width: thin;
-	scrollbar-color: transparent transparent;
-}
-
-.scrollable-table::-moz-scrollbar {
-	width: 6px;
-}
-
-.scrollable-table::-moz-scrollbar-track {
-	background-color: transparent;
-}
-
-.scrollable-table::-moz-scrollbar-thumb {
-	background-color: transparent;
-}
-</style>
-
+<link rel="stylesheet" href="../CSS/jobs.css">
 </head>
 <body>
 
@@ -123,7 +28,26 @@ tr:hover {
 	<%-- Establish the database connection --%>
 	<%
 	Connection conn = dbconn.getConnection();
-	Statement stmt = conn.createStatement();
+	Statement stmt = conn.createStatement(); String query1 = "SELECT * FROM order_list ";
+    ResultSet rs1 = stmt.executeQuery(query1);
+    
+    while (rs1.next()) {
+        if ("available".equals(rs1.getString("status"))) {
+                                       // Calculate priority for the current job
+            String startTime1 = rs1.getString("start_time");
+            String estimatedCompleted1 = rs1.getString("estimated_completed");
+            String estimatedCost1 = rs1.getString("estimated_cost");
+            String concatenatedJobs1 = rs1.getString("repairs");
+
+            priority order = new priority(startTime1, estimatedCompleted1, estimatedCost1, concatenatedJobs1);
+            int priorit = order.calculate_priority();
+
+            // Update the priority in the database
+            int orderId = rs1.getInt("order_id");
+            String updatePriorityQuery = "UPDATE order_list SET priority = " + priorit + " WHERE order_id = " + orderId;
+            stmt.executeUpdate(updatePriorityQuery);
+        }
+    }
 
 	// Retrieve users with is_admin = 2
 	String query = "SELECT * FROM order_list ORDER BY priority DESC";

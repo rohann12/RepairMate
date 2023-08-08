@@ -54,7 +54,7 @@
     }
 </style>
 </head>
-<body>
+<body style="margin:0px;">
 <jsp:include page="nav.jsp"></jsp:include>
 <div class="container">
     <h2>Job Completion</h2>
@@ -62,6 +62,9 @@
         <% int id = Integer.parseInt(request.getParameter("id"));
             Connection conn = dbconn.getConnection();
             Statement stmt = conn.createStatement();
+            //Sets the order status as completed
+            String updateQuery = "UPDATE order_list SET status = 'completed' WHERE order_id = " + id;
+            stmt.executeUpdate(updateQuery);
             String query = "SELECT * FROM order_list WHERE order_id=" + id;
             ResultSet rs = stmt.executeQuery(query);
             if (rs.next()) {
@@ -69,6 +72,10 @@
                 String vehicleNumber = rs.getString("vehicle_no");
                 String repairs = rs.getString("repairs");
         %>
+        <div class="form-group">
+            <label for="order_id">Order Id</label>
+            <input type="text" id="order_id" name="order_id" value="<%= +id %>" readonly>
+        </div>
         <div class="form-group">
             <label for="customerName">Customer Name</label>
             <input type="text" id="customerName" name="customerName" value="<%= customerName %>" readonly>
@@ -93,7 +100,13 @@
             <button type="submit" class="btn">Save</button>
         </div>
         <% } %>
+        
+        
     </form>
+    <!-- Button to redirect to email.jsp -->
+    <div class="form-group">
+        <a href="email.jsp?id=<%= id %>"><button class="btn">Send Email</button></a>
+    </div>
 </div>
 </body>
 </html>

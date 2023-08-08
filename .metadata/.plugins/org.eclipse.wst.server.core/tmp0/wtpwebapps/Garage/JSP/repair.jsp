@@ -73,14 +73,16 @@ input[type="checkbox"] {
 }
 </style>
 </head>
-<body>
+<body style="margin:0px;">
 <jsp:include page="nav.jsp" />
 <%
     int id = Integer.parseInt(request.getParameter("id"));
     Connection conn = dbconn.getConnection();
     Statement stmt = conn.createStatement();
-
-    // Retrieve users with is_admin = 2
+    //Sets the order status as ongoing
+    String updateQuery = "UPDATE order_list SET status = 'ongoing' WHERE order_id = " + id;
+    stmt.executeUpdate(updateQuery);
+    
     String query = "SELECT * FROM order_list WHERE order_id=" + id;
     ResultSet rs = stmt.executeQuery(query);
 %>

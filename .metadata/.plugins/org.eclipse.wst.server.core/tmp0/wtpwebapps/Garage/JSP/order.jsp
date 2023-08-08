@@ -4,7 +4,7 @@
   <title>Order Form</title>
   <link rel="stylesheet" href="../CSS/orders.css"/>
 </head>
-<body>
+<body style="margin:0px;">
 <%
 	HttpSession s = request.getSession(false);
 	if (s != null && Boolean.TRUE.equals(s.getAttribute("isAdmin"))) {
@@ -22,11 +22,14 @@
   <form action="orderInsert.jsp" method="post">
     
     
-    <label for="customer_id">Customer ID:</label>
+    <label for="hidden">Customer ID:</label>
     <input type="text" id="customer_id" name="customer_id" value="0" placeholder="0" >
     
     <label for="customer_name">Customer Name:</label>
     <input type="text" id="customer_name" name="customer_name" required>
+    
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" >
     
     <label for="vehicle_no">Vehicle Number:</label>
     <input type="text" id="vehicle_no" name="vehicle_no" required>

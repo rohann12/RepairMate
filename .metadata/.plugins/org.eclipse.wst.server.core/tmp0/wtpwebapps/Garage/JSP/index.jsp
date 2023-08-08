@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="../CSS/index.css">
  
 </head>
-<body>
+<body style="margin:0px;">
   <!-- Navigation Bar -->
   
   <%

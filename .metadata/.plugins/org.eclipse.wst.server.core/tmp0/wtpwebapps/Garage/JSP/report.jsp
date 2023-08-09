@@ -69,6 +69,7 @@
 		</div>
 	</div>
 	</div>
+	<% int id = Integer.parseInt(request.getParameter("id"));%>
 
 </body>
 </html>

@@ -38,14 +38,16 @@ try {
 	if (resultSet.next()) {
 		// Check the value of the is_admin column
 		int isAdmin = resultSet.getInt("is_admin");
-
+		int userID= resultSet.getInt("user_id");
 		// Start a session and store the user information
 		HttpSession s = request.getSession();
 		s.setAttribute("username", username);
-
+		s.setAttribute("userID",userID);
+		
 		// Redirect to admin dashboard or a different page for non-admin users
 		if (isAdmin == 1) {
 	s.setAttribute("isAdmin", true);
+	
 
 	response.sendRedirect("../JSP/adminDash.jsp");
 		} else {

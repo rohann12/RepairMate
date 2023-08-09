@@ -28,27 +28,8 @@
 	<%-- Establish the database connection --%>
 	<%
 	Connection conn = dbconn.getConnection();
-	Statement stmt = conn.createStatement(); String query1 = "SELECT * FROM order_list ";
-    ResultSet rs1 = stmt.executeQuery(query1);
-    
-    while (rs1.next()) {
-        if ("available".equals(rs1.getString("status"))) {
-                                       // Calculate priority for the current job
-            String startTime1 = rs1.getString("start_time");
-            String estimatedCompleted1 = rs1.getString("estimated_completed");
-            String estimatedCost1 = rs1.getString("estimated_cost");
-            String concatenatedJobs1 = rs1.getString("repairs");
 
-            priority order = new priority(startTime1, estimatedCompleted1, estimatedCost1, concatenatedJobs1);
-            int priorit = order.calculate_priority();
-
-            // Update the priority in the database
-            int orderId = rs1.getInt("order_id");
-            String updatePriorityQuery = "UPDATE order_list SET priority = " + priorit + " WHERE order_id = " + orderId;
-            stmt.executeUpdate(updatePriorityQuery);
-        }
-    }
-
+    Statement stmt = conn.createStatement(); 
 	// Retrieve users with is_admin = 2
 	String query = "SELECT * FROM order_list ORDER BY priority DESC";
 	ResultSet rs = stmt.executeQuery(query);

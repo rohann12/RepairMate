@@ -91,6 +91,7 @@
         <div class="form-group">
             <label for="mechanic">Mechanic</label>
             <input type="text" id="mechanic" name="mechanic" value="<%= session.getAttribute("username") %>" readonly>
+           
         </div>
         <div class="form-group">
             <label for="repairs">Repairs</label>

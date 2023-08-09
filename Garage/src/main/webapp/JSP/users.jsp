@@ -41,12 +41,18 @@
             <th>User ID</th>
             <th>Username</th>
             <th>Email</th>
+            <th>Action</th>
         </tr>
         <% while (rs.next()) { %>
             <tr>
                 <td><%= rs.getInt("user_id") %></td>
                 <td><%= rs.getString("user_name") %></td>
                 <td><%= rs.getString("email") %></td>
+                <td>
+                    <a href="report.jsp?id=<%= rs.getInt("user_id") %>">
+                        <button>Generate Report</button>
+                    </a>
+                </td>
             </tr>
         <% } %>
     </table>

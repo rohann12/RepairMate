@@ -66,7 +66,7 @@ body {
 				<li><a href="customers.jsp">Customers</a></li>
 				<li><a href="admins.jsp">Admins</a></li>
 				<li><a href="invoice.jsp">Invoice</a></li>
-				<li><a href="report.jsp">Report</a></li>
+<!-- 				<li><a href="report.jsp">Report</a></li> -->
 			</ul>
 		</div>
 	</div>

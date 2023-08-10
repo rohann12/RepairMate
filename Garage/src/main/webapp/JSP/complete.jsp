@@ -71,6 +71,8 @@
                 String customerName = rs.getString("customer_name");
                 String vehicleNumber = rs.getString("vehicle_no");
                 String repairs = rs.getString("repairs");
+//                 int timeTaken = Integer.parseInt(request.getParameter("timeTaken"));
+//                 int amount = (timeTaken / 30) * 50;
         %>
         <div class="form-group">
             <label for="order_id">Order Id</label>
@@ -88,6 +90,10 @@
             <label for="completedTime">Completed Time</label>
             <input type="text" id="completedTime" name="completedTime" value="<%= request.getParameter("timeTaken") %>" readonly>
         </div>
+<!--          <div class="form-group"> -->
+<!--             <label for="amount">Total Amount</label> -->
+<%--                <input type="text" id="amount" name="amount" value="<%= amount %>" readonly> --%>
+<!--         </div> -->
         <div class="form-group">
             <label for="mechanic">Mechanic</label>
             <input type="text" id="mechanic" name="mechanic" value="<%= session.getAttribute("username") %>" readonly>

@@ -6,7 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 public class priority {
 	int timeEstimated, amount, numberOfJobs; // Declare numberOfJobs as an instance variable
-	String startTime, estimatedCompleted, estimatedCost, concatenatedJobs;
+	String startTime, estimatedCompleted, estimatedCost, concatenatedJobs; 
 
 	public priority(String startTime, String estimatedCompleted, String estimatedCost, String concatenatedJobs) {
 		this.startTime = startTime;

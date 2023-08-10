@@ -2,6 +2,11 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <%@ page import="com.database.dbconn"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="java.util.Date"%>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -123,13 +128,18 @@ tr:hover {
 					Connection conn = dbconn.getConnection();
 					Statement stmt = conn.createStatement();
 
-					// Retrieve users with is_admin = 2
-					String query = "SELECT * FROM order_list ORDER BY priority DESC";
+					// Get today's date in the format yyyy-MM-dd
+					SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+					String todayDate = dateFormat.format(new Date());
+
+				
+					String query = "SELECT * FROM order_list WHERE DATE(start_time) = '" + todayDate + "' or (status = 'available' OR status = 'ongoing') ORDER BY status ASC, priority DESC";
 					ResultSet rs = stmt.executeQuery(query);
 
 					while (rs.next()) {
 						String repairs = rs.getString("repairs");
 						String[] repairsArray = repairs.split(". "); // Split the concatenated repairs into an array
+						int count=0;
 					%>
 					<tr>
 						<td><%=serialNumber%></td>
@@ -138,10 +148,15 @@ tr:hover {
 						<td>
 							<%
 							for (String repair : repairsArray) {
-							%> <%=repair%><br> <!-- Display each repair on a new line -->
+								count++;
+							%>
+							
+<%-- 							 <%=repair%><br> <!-- Display each repair on a new line --> --%>
 							<%
 							}
+							
 							%>
+							<%=count%>
 						</td>
 						<td><%=rs.getString("priority")%></td>
 						<td><%=rs.getString("status")%></td>

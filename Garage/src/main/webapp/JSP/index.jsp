@@ -29,10 +29,10 @@
   <div class="landing-page">
     <h1>Welcome to RepairMate!</h1>
     <p></p>
-    <div class="cta-buttons">
-      <a href="login.jsp">Login</a>
-      <a href="reg.jsp">Sign Up</a>
-    </div>
+<!--     <div class="cta-buttons"> -->
+<!--       <a href="login.jsp">Login</a> -->
+<!--       <a href="reg.jsp">Sign Up</a> -->
+<!--     </div> -->
   </div>
 
   <!-- Other content of the landing page -->

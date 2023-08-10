@@ -24,8 +24,8 @@
 
     try {
         // Insert data into the invoice table
-        String insertQuery = "INSERT INTO invoice (customer_name, mechanic, mechanicID, invoice_date, total_amount, paid_amount, payment_status)" +
-                " VALUES (?, ?, ?, CURDATE(), ?, ?, ?)";
+        String insertQuery = "INSERT INTO invoice (customer_name, mechanic, mechanicID, invoice_date, total_amount, paid_amount, payment_status,timeTaken)" +
+                " VALUES (?, ?, ?, CURDATE(), ?, ?, ?,?)";
         pstmt = conn.prepareStatement(insertQuery);
         pstmt.setString(1, customerName);
         pstmt.setString(2, mechanic);
@@ -33,6 +33,7 @@
         pstmt.setDouble(4, 0.0); // Set initial total_amount
         pstmt.setDouble(5, 0.0); // Set initial paid_amount
         pstmt.setString(6, "Unpaid"); // Set initial payment_status
+        pstmt.setString(7,completedTime);
 
         pstmt.executeUpdate();
         // Call the function to show "Data Saved" alert
@@ -52,8 +53,8 @@
 //             alert('Data saved successfully.');            
 <%--             var id=<%=id%>; --%>
 <%--             var comp=<%=completedTime%>; --%>
-//             var url = "complete.jsp?id=" + id + "&timeTaken=" + comp;
-//             window.location.href = url;
+<!-- //             var url = "complete.jsp?id=" + id + "&timeTaken=" + comp; -->
+<!-- //             window.location.href = url; -->
 //         }
 <!--     </script> -->
 </body>

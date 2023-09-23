@@ -133,6 +133,8 @@ input[type="checkbox"] {
                 <% } %>
             </td>
         </tr>
+         
+       
         <tr>
             <td colspan="2">
                 <button id="start_btn" onclick="startStopwatch()">Start</button>

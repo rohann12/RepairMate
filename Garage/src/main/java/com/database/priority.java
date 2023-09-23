@@ -38,10 +38,11 @@ public class priority {
 	public int calculate_priority() {
 		int pr = 0;
 
-		// Conditions based on timeEstimated
+		// Conditions based on timeEstimated 1hr
 		if (timeEstimated <= (60 * 60)) {
 			pr += 1;
 		}
+		// 30 min
 		if (timeEstimated <= (30 * 60)) {
 			pr += 1;
 		} else if (timeEstimated < (24 * 60 * 60)) { // Less than a day

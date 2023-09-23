@@ -9,14 +9,11 @@
 
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title> Dashboard</title>
 <link rel="stylesheet" href="../CSS/adminDash.css">
 </head>
-<body>
 
-	<jsp:include page="adminNav.jsp" />
+
+	
 
 	<div style="display: grid; place-items: center">
 		<div class="content" style="margin-top: 20px;">
@@ -80,5 +77,5 @@
 		</div>
 	</div>
 
-</body>
+
 </html>
